@@ -1,4 +1,5 @@
 #include <QStandardPaths>
+#include <QUrl>
 
 #include "backend.h"
 
@@ -22,5 +23,5 @@ QString BackEnd::VideoDirectoryPath()
     {
         strMoviePath = slPaths.at(0);
     }
-    return strMoviePath;
+    return QUrl::fromLocalFile(strMoviePath).toString();
 }

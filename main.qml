@@ -33,7 +33,7 @@ ApplicationWindow {
 
     MediaPlayer {
         id: player
-        source: "file://" + backend.moviePath + "/TestVideo.mp4"
+        source: backend.moviePath + "/TestVideo.mp4"
         onPositionChanged: {
             textPositionInDuration.text = position + "/" + duration
             sliderPosition.value = position
@@ -85,21 +85,12 @@ ApplicationWindow {
             }
         }
 
-        onHeightChanged: {
-            console.log(height)
-        }
-
         Keys.onPressed: {
             if (applicationWindow.visibility == 5 && event.key === Qt.Key_Escape) {
                 fullScreen(false)
             }
         }
     }
-        Keys.onPressed: {
-            if (applicationWindow.visibility == 5 && event.key === Qt.Key_Escape) {
-                fullScreen(false)
-            }
-        }
 
     Rectangle {
         id: rectangleBottom
