@@ -8,8 +8,8 @@ import io.qt.examples.backend 1.0
 ApplicationWindow {
     id: applicationWindow
     visible: true
-    width: 640
-    height: 480
+    width: 800
+    height: 600
     title: qsTr("Hello World")
 
     BackEnd {
@@ -95,7 +95,7 @@ ApplicationWindow {
     Rectangle {
         id: rectangleBottom
         y: 272
-        height: 250
+        height: 300
         color: "#ffffff"
         anchors.right: parent.right
         anchors.left: parent.left
@@ -310,6 +310,25 @@ ApplicationWindow {
             onClicked: {
                 sliderContrast.value = 0.0
             }
+        }
+
+        Text {
+            id: textRotation
+            y: 262
+            text: qsTr("Rotation: ")
+            anchors.verticalCenter: sliderRotation.verticalCenter
+            anchors.left: parent.left
+            font.pixelSize: 12
+        }
+
+        Slider {
+            id: sliderRotation
+            anchors.top: buttonResetContrast.bottom
+            anchors.right: parent.right
+            anchors.left: textRotation.right
+            to: 360
+            value: 0
+            onPositionChanged: rectangleVideo.rotation = value
         }
     }
 }
